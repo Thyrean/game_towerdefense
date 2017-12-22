@@ -9,7 +9,7 @@ uploadBuilds() {
 	plattform=$1
 	deploypath=$USERNAME:$PASSWORD@$SERVER:$PATH/Builds/$1/
 	echo $deploypath
-	scp -r $(pwd)/Builds/$1/* $deploypath
+	rsync -avr $(pwd)/Builds/$1/* $deploypath
 }
 
 echo "travis_fold:start:upload_build"
