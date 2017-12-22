@@ -13,6 +13,10 @@ installPackage() {
 	sudo installer -dumplog -package `basename "$package"` -target /
 }
 
+echo "travis_fold:start:install_dependencies"
+	brew install rsync
+echo "travis_fold:stop:install_dependencies"
+
 echo $BASE_URL/$HASH/unity-$VERSION-$PLATFORM.ini
 echo "travis_fold:start:install_unity"
 	echo 'Installing Unity $VERSION'
